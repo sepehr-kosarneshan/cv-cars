@@ -33,7 +33,7 @@ def get_polygon_from_video(video_path):
 
     print("\n--- راهنمای ابزار انتخاب ناحیه ---")
     print("1. با کلیک چپ، گوشه‌های محدوده را انتخاب کنید.")
-    print("2. دکمه ENTER یا c را برای تایید بزنید.")
+    print("2. دکمه ENTER یا c را بر/ای تایید بزنید.")
     print("3. دکمه r برای ریست و q برای خروج.\n")
 
     while True:
@@ -174,7 +174,7 @@ if __name__ == '__main__':
         if roi_polygon is not None:
             print("\nمحدوده با موفقیت ثبت شد. در حال شروع پردازش اصلی...")
 
-            # اجرای فاز دوم: ردیابی و شمارش
+            # اجرای فاز دوم: ردیابی و شمارش\
             final_stats = process_traffic_video(video_path, 'yolov8n.pt', roi_polygon)
 
             print("\n=== آمار نهایی ===")
@@ -183,7 +183,7 @@ if __name__ == '__main__':
 
             # فاز سوم: خروجی اکسل
             df = pd.DataFrame(list(final_stats.items()), columns=['Mode', 'Count'])
-            df.to_excel(os.path.join('result',f'{file_name}.xlsx'), index=False)
+            df.to_excel(os.path.join('result',f'result{file_name[:3]}.xlsx'), index=False)
             print("\nفایل اکسل با موفقیت ایجاد شد.")
         else:
             print("محدوده‌ای انتخاب نشد. برنامه پایان یافت.")
